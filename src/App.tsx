@@ -14,7 +14,7 @@ function App() {
 
 
   const fecthData = async () => {
-    const response = await axios.get('http://localhost:3000/user/all');
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/user/all`);
     const data = response.data;
     return data;
   }
@@ -24,7 +24,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3000/user/create', user);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/user/create`, user);
       const data = response.data;
       return data;
     } catch (error) {
